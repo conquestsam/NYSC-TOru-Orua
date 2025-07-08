@@ -19,6 +19,7 @@ import {
 } from 'lucide-react'
 import { supabase, JobScholarship } from '@/lib/supabase'
 import { format, isAfter, parseISO } from 'date-fns'
+import { toast } from 'sonner'
 
 export default function JobsScholarships() {
   const [jobs, setJobs] = useState<JobScholarship[]>([])
@@ -89,7 +90,7 @@ export default function JobsScholarships() {
     setFilteredJobs(filtered)
   }
 
-  const isExpired = (deadline: string | null) => {
+  const isExpired = (deadline: string | null | undefined) => {
     if (!deadline) return false
     return isAfter(new Date(), parseISO(deadline))
   }

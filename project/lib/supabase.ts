@@ -52,7 +52,7 @@ export interface JobScholarship {
   description?: string
   image_url?: string
   external_link?: string
-  deadline?: string
+  deadline: string | undefined | null
   is_active: boolean
   created_at: string
   updated_at: string

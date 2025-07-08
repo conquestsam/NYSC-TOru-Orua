@@ -201,7 +201,7 @@ export default function JobsScholarshipsManagement() {
     return isScholarship ? 'scholarship' : 'job'
   }
 
-  const isExpired = (deadline: string | null) => {
+  const isExpired = (deadline: string | null | undefined) => {
     if (!deadline) return false
     return isAfter(new Date(), parseISO(deadline))
   }
